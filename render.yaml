@@ -4,6 +4,7 @@
 databases:
   - name: luxuryresort-db
     plan: free
+    region: frankfurt
     databaseName: luxuryresort
     user: resort_user
 
