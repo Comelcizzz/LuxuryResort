@@ -1,12 +1,11 @@
 #!/bin/sh
 set -e
 
-# Render sets PORT; Spring reads SERVER_PORT (see application.yml).
 if [ -n "$PORT" ]; then
   export SERVER_PORT="$PORT"
 fi
 
-# Render Postgres provides postgres://… — convert for Spring JDBC if needed.
+# Render Postgres: postgres://user:pass@host:port/db → jdbc:postgresql://…
 if [ -n "$DATABASE_URL" ] && [ -z "$SPRING_DATASOURCE_URL" ]; then
   case "$DATABASE_URL" in
     postgres://*)
@@ -14,6 +13,9 @@ if [ -n "$DATABASE_URL" ] && [ -z "$SPRING_DATASOURCE_URL" ]; then
       ;;
     postgresql://*)
       export SPRING_DATASOURCE_URL="jdbc:postgresql://${DATABASE_URL#postgresql://}"
+      ;;
+    jdbc:*)
+      export SPRING_DATASOURCE_URL="$DATABASE_URL"
       ;;
   esac
 fi

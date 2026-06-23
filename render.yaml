@@ -1,9 +1,5 @@
 # Render Blueprint — LuxuryResort (API + PostgreSQL + Static frontend)
 # Docs: https://render.com/docs/blueprint-spec
-#
-# Deploy: push repo to GitHub → Render Dashboard → New → Blueprint → select repo.
-# After first deploy, open the frontend URL and log in (prod profile has no demo seed;
-# use SPRING_PROFILES_ACTIVE=docker if you need dev seed data — see DEPLOY_DEV.md).
 
 databases:
   - name: luxuryresort-db
