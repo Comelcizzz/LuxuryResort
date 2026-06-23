@@ -43,10 +43,7 @@ services:
           name: luxuryresort-db
           property: password
       - key: CORS_ORIGINS
-        fromService:
-          type: web
-          name: luxuryresort-web
-          envVarKey: RENDER_EXTERNAL_URL
+        value: https://luxuryresort-web.onrender.com
 
   - type: web
     name: luxuryresort-web

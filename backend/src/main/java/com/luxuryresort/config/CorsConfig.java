@@ -36,7 +36,13 @@ public class CorsConfig {
         String raw = allowedOrigins == null || allowedOrigins.isBlank()
                 ? "http://localhost:5173"
                 : allowedOrigins;
-        configuration.setAllowedOrigins(Arrays.stream(raw.split(",")).map(String::trim).filter(s -> !s.isEmpty()).toList());
+        var patterns = new java.util.ArrayList<String>();
+        patterns.add("https://*.onrender.com");
+        Arrays.stream(raw.split(","))
+                .map(String::trim)
+                .filter(s -> !s.isEmpty())
+                .forEach(patterns::add);
+        configuration.setAllowedOriginPatterns(patterns);
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
