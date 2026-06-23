@@ -1,9 +1,12 @@
 #!/bin/sh
 set -e
 
+# Render sets PORT; Spring reads it via application.yml.
 if [ -n "$PORT" ]; then
   export SERVER_PORT="$PORT"
 fi
+
+echo "SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-<not set>}"
 
 resolve_pg_host() {
   host="$1"
