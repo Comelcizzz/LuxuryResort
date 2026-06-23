@@ -1,0 +1,175 @@
+﻿Luxury Resort installer log
+[2026-06-08 21:30:24] [INFO] Project folder: C:\Users\razer\Desktop\New folder (2)\Дипломна Киця
+[2026-06-08 21:30:24] [INFO] Installer is running with administrator privileges.
+[2026-06-08 21:30:25] [WARN] Windows reports BIOS/UEFI virtualization as disabled. Continuing anyway because this check can be wrong after Docker/WSL changes. If Docker fails to start, enable Intel VT-x / Intel Virtualization Technology or AMD-V / SVM Mode in BIOS/UEFI.
+[2026-06-08 21:30:25] [INFO] Checking Windows features required by Docker Desktop and WSL2.
+[2026-06-08 21:30:26] [INFO] Windows feature already enabled: Microsoft-Windows-Subsystem-Linux
+[2026-06-08 21:30:26] [INFO] Windows feature already enabled: VirtualMachinePlatform
+[2026-06-08 21:30:26] [INFO] Enabling Windows hypervisor startup
+[2026-06-08 21:30:26] [INFO] Command: bcdedit.exe /set hypervisorlaunchtype auto
+[2026-06-08 21:30:27] [INFO] The operation completed successfully.
+[2026-06-08 21:30:27] [INFO] Docker command found.
+[2026-06-08 21:30:27] [INFO] Starting Docker Desktop.
+[2026-06-08 21:30:27] [INFO] Waiting for Docker engine. First startup may take several minutes.
+[2026-06-08 21:30:33] [INFO] Docker is still starting...
+[2026-06-08 21:30:34] [INFO] Docker engine is ready.
+[2026-06-08 21:30:34] [INFO] .env already exists.
+[2026-06-08 21:30:34] [INFO] Checking Docker Compose
+[2026-06-08 21:30:34] [INFO] Command: docker compose version
+[2026-06-08 21:30:35] [INFO] Docker Compose version v5.1.3
+[2026-06-08 21:30:35] [INFO] Building and starting database, backend, and frontend
+[2026-06-08 21:30:35] [INFO] Command: docker compose -p luxuryresort --profile app up -d --build
+[2026-06-08 21:30:58] [INFO] #1 [internal] load local bake definitions
+[2026-06-08 21:30:58] [INFO] #1 reading from stdin 1.16kB done
+[2026-06-08 21:30:58] [INFO] #1 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #2 [backend internal] load build definition from Dockerfile
+[2026-06-08 21:30:58] [INFO] #2 transferring dockerfile: 698B done
+[2026-06-08 21:30:58] [INFO] #2 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #3 [frontend internal] load build definition from Dockerfile
+[2026-06-08 21:30:58] [INFO] #3 transferring dockerfile: 285B done
+[2026-06-08 21:30:58] [INFO] #3 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #4 [frontend internal] load metadata for docker.io/library/nginx:1.27-alpine
+[2026-06-08 21:30:58] [INFO] #4 DONE 0.4s
+[2026-06-08 21:30:58] [INFO] #5 [frontend internal] load metadata for docker.io/library/node:22-alpine
+[2026-06-08 21:30:58] [INFO] #5 DONE 0.5s
+[2026-06-08 21:30:58] [INFO] #6 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jdk-alpine
+[2026-06-08 21:30:58] [INFO] #6 DONE 0.4s
+[2026-06-08 21:30:58] [INFO] #7 [frontend internal] load .dockerignore
+[2026-06-08 21:30:58] [INFO] #7 transferring context: 121B done
+[2026-06-08 21:30:58] [INFO] #7 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #8 [frontend internal] load build context
+[2026-06-08 21:30:58] [INFO] #8 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #9 [backend internal] load metadata for docker.io/library/eclipse-temurin:21-jre-alpine
+[2026-06-08 21:30:58] [INFO] #9 DONE 0.5s
+[2026-06-08 21:30:58] [INFO] #10 [backend internal] load .dockerignore
+[2026-06-08 21:30:58] [INFO] #10 transferring context: 80B done
+[2026-06-08 21:30:58] [INFO] #10 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #11 [frontend build 1/6] FROM docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+[2026-06-08 21:30:58] [INFO] #11 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920
+[2026-06-08 21:30:58] [INFO] #11 resolve docker.io/library/node:22-alpine@sha256:968df39aedcea65eeb078fb336ed7191baf48f972b4479711397108be0966920 0.1s done
+[2026-06-08 21:30:58] [INFO] #11 DONE 0.1s
+[2026-06-08 21:30:58] [INFO] #12 [frontend stage-1 1/3] FROM docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+[2026-06-08 21:30:58] [INFO] #12 resolve docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.1s done
+[2026-06-08 21:30:58] [INFO] #12 DONE 0.1s
+[2026-06-08 21:30:58] [INFO] #8 [frontend internal] load build context
+[2026-06-08 21:30:58] [INFO] #8 transferring context: 208.67kB 0.0s done
+[2026-06-08 21:30:58] [INFO] #8 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #13 [backend build 1/9] FROM docker.io/library/eclipse-temurin:21-jdk-alpine@sha256:4fb80de7aeb277ad949cfbe89b4f504e50bb34c57fd908c5825236473d71e986
+[2026-06-08 21:30:58] [INFO] #13 resolve docker.io/library/eclipse-temurin:21-jdk-alpine@sha256:4fb80de7aeb277ad949cfbe89b4f504e50bb34c57fd908c5825236473d71e986 0.1s done
+[2026-06-08 21:30:58] [INFO] #13 DONE 0.1s
+[2026-06-08 21:30:58] [INFO] #14 [backend stage-1 1/4] FROM docker.io/library/eclipse-temurin:21-jre-alpine@sha256:704db3c40204a44f471191446ddd9cda5d60dab40f0e15c6507b815ed897238b
+[2026-06-08 21:30:58] [INFO] #14 resolve docker.io/library/eclipse-temurin:21-jre-alpine@sha256:704db3c40204a44f471191446ddd9cda5d60dab40f0e15c6507b815ed897238b 0.1s done
+[2026-06-08 21:30:58] [INFO] #14 DONE 0.1s
+[2026-06-08 21:30:58] [INFO] #15 [frontend build 2/6] WORKDIR /workspace
+[2026-06-08 21:30:58] [INFO] #15 CACHED
+[2026-06-08 21:30:58] [INFO] #16 [frontend build 3/6] COPY package*.json ./
+[2026-06-08 21:30:58] [INFO] #16 CACHED
+[2026-06-08 21:30:58] [INFO] #17 [frontend build 4/6] RUN npm ci
+[2026-06-08 21:30:58] [INFO] #17 CACHED
+[2026-06-08 21:30:58] [INFO] #18 [backend internal] load build context
+[2026-06-08 21:30:58] [INFO] #18 transferring context: 183.92kB 0.0s done
+[2026-06-08 21:30:58] [INFO] #18 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #19 [frontend build 5/6] COPY . .
+[2026-06-08 21:30:58] [INFO] #19 DONE 0.1s
+[2026-06-08 21:30:58] [INFO] #20 [backend build 4/9] COPY .mvn .mvn
+[2026-06-08 21:30:58] [INFO] #20 CACHED
+[2026-06-08 21:30:58] [INFO] #21 [backend build 2/9] WORKDIR /workspace
+[2026-06-08 21:30:58] [INFO] #21 CACHED
+[2026-06-08 21:30:58] [INFO] #22 [backend build 5/9] COPY mvnw .
+[2026-06-08 21:30:58] [INFO] #22 CACHED
+[2026-06-08 21:30:58] [INFO] #23 [backend build 7/9] RUN chmod +x mvnw
+[2026-06-08 21:30:58] [INFO] #23 CACHED
+[2026-06-08 21:30:58] [INFO] #24 [backend build 8/9] COPY src src
+[2026-06-08 21:30:58] [INFO] #24 CACHED
+[2026-06-08 21:30:58] [INFO] #25 [backend build 9/9] RUN ./mvnw -q -B package -DskipTests
+[2026-06-08 21:30:58] [INFO] #25 CACHED
+[2026-06-08 21:30:58] [INFO] #26 [backend build 6/9] RUN sed -i 's/\r$//' mvnw 2>/dev/null || true
+[2026-06-08 21:30:58] [INFO] #26 CACHED
+[2026-06-08 21:30:58] [INFO] #27 [backend stage-1 3/4] RUN apk add --no-cache curl     && addgroup -g 1001 -S app && adduser -u 1001 -S app -G app
+[2026-06-08 21:30:58] [INFO] #27 CACHED
+[2026-06-08 21:30:58] [INFO] #28 [backend stage-1 2/4] WORKDIR /app
+[2026-06-08 21:30:58] [INFO] #28 CACHED
+[2026-06-08 21:30:58] [INFO] #29 [backend build 3/9] COPY pom.xml .
+[2026-06-08 21:30:58] [INFO] #29 CACHED
+[2026-06-08 21:30:58] [INFO] #30 [backend stage-1 4/4] COPY --from=build /workspace/target/luxury-resort-api-*.jar /app/app.jar
+[2026-06-08 21:30:58] [INFO] #30 CACHED
+[2026-06-08 21:30:58] [INFO] #31 [backend] exporting to image
+[2026-06-08 21:30:58] [INFO] #31 exporting layers done
+[2026-06-08 21:30:58] [INFO] #31 exporting manifest sha256:3030aace81ee4740ca2cff85b70b9c2b8ef7cb7f4889b000b532e3f80ca024a9 done
+[2026-06-08 21:30:58] [INFO] #31 exporting config sha256:901b4e8016de58bd33b8c6d4803530d302fea2dd139dc3222023e08a4d6b2896 done
+[2026-06-08 21:30:58] [INFO] #31 exporting attestation manifest sha256:7c1fe9598689a724167827ca683eccc1facec435c5866e7fcd52bf489e82cdf1 0.1s done
+[2026-06-08 21:30:58] [INFO] #31 exporting manifest list sha256:9cf63c59fd38b3260bf81a990413761c7e1fe1044b9f590fa788c243ed2ab855
+[2026-06-08 21:30:58] [INFO] #31 exporting manifest list sha256:9cf63c59fd38b3260bf81a990413761c7e1fe1044b9f590fa788c243ed2ab855 0.0s done
+[2026-06-08 21:30:58] [INFO] #31 naming to docker.io/library/luxuryresort-backend:latest done
+[2026-06-08 21:30:58] [INFO] #31 unpacking to docker.io/library/luxuryresort-backend:latest 0.0s done
+[2026-06-08 21:30:58] [INFO] #31 DONE 0.2s
+[2026-06-08 21:30:58] [INFO] #32 [backend] resolving provenance for metadata file
+[2026-06-08 21:30:58] [INFO] #32 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #33 [frontend build 6/6] RUN npm run build
+[2026-06-08 21:30:58] [INFO] #33 0.979 
+[2026-06-08 21:30:58] [INFO] #33 0.979 > luxury-resort-frontend@0.0.1 build
+[2026-06-08 21:30:58] [INFO] #33 0.979 > vite build
+[2026-06-08 21:30:58] [INFO] #33 0.979 
+[2026-06-08 21:30:58] [INFO] #33 1.225 vite v6.4.2 building for production...
+[2026-06-08 21:30:58] [INFO] #33 1.695 transforming...
+[2026-06-08 21:30:58] [INFO] #33 4.794 âœ“ 2805 modules transformed.
+[2026-06-08 21:30:58] [INFO] #33 5.158 rendering chunks...
+[2026-06-08 21:30:58] [INFO] #33 5.170 computing gzip size...
+[2026-06-08 21:30:58] [INFO] #33 5.191 dist/index.html                     0.80 kB â”‚ gzip:   0.43 kB
+[2026-06-08 21:30:58] [INFO] #33 5.191 dist/assets/index-qBMvIDq_.css     28.61 kB â”‚ gzip:   6.00 kB
+[2026-06-08 21:30:58] [INFO] #33 5.191 dist/assets/index-hgEKdMd0.js   1,059.34 kB â”‚ gzip: 310.61 kB
+[2026-06-08 21:30:58] [INFO] #33 5.191 âœ“ built in 3.95s
+[2026-06-08 21:30:58] [INFO] #33 5.191 
+[2026-06-08 21:30:58] [INFO] #33 5.191 (!) Some chunks are larger than 500 kB after minification. Consider:
+[2026-06-08 21:30:58] [INFO] #33 5.191 - Using dynamic import() to code-split the application
+[2026-06-08 21:30:58] [INFO] #33 5.191 - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+[2026-06-08 21:30:58] [INFO] #33 5.191 - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+[2026-06-08 21:30:58] [INFO] #33 5.242 npm notice
+[2026-06-08 21:30:58] [INFO] #33 5.242 npm notice New major version of npm available! 10.9.8 -> 11.16.0
+[2026-06-08 21:30:58] [INFO] #33 5.242 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.16.0
+[2026-06-08 21:30:58] [INFO] #33 5.242 npm notice To update run: npm install -g npm@11.16.0
+[2026-06-08 21:30:58] [INFO] #33 5.242 npm notice
+[2026-06-08 21:30:58] [INFO] #33 DONE 5.3s
+[2026-06-08 21:30:58] [INFO] #34 [frontend stage-1 2/3] COPY nginx.conf /etc/nginx/conf.d/default.conf
+[2026-06-08 21:30:58] [INFO] #34 CACHED
+[2026-06-08 21:30:58] [INFO] #35 [frontend stage-1 3/3] COPY --from=build /workspace/dist /usr/share/nginx/html
+[2026-06-08 21:30:58] [INFO] #35 DONE 0.0s
+[2026-06-08 21:30:58] [INFO] #36 [frontend] exporting to image
+[2026-06-08 21:30:58] [INFO] #36 exporting layers 0.1s done
+[2026-06-08 21:30:58] [INFO] #36 exporting manifest sha256:6bde776384ad6b729c763b2979bea6533a762d3affde3fbda6f5ace3b80fa86f 0.0s done
+[2026-06-08 21:30:58] [INFO] #36 exporting config sha256:ff76c9944480be10a46f346a844b2696604d0bdc428dbfddc57c51d1119e8ce6 0.0s done
+[2026-06-08 21:30:58] [INFO] #36 exporting attestation manifest sha256:9b45d52e6df30e761f0ff0324e533091ff11bbb9ba45ff49fe5c265e252054e7 0.0s done
+[2026-06-08 21:30:58] [INFO] #36 exporting manifest list sha256:aa554c6ec3fc1061f362886e0bfa0687e57cd9d9c210efa53c3d5df8ee55911e
+[2026-06-08 21:30:58] [INFO] #36 exporting manifest list sha256:aa554c6ec3fc1061f362886e0bfa0687e57cd9d9c210efa53c3d5df8ee55911e 0.0s done
+[2026-06-08 21:30:58] [INFO] #36 naming to docker.io/library/luxuryresort-frontend:latest done
+[2026-06-08 21:30:58] [INFO] #36 unpacking to docker.io/library/luxuryresort-frontend:latest 0.0s done
+[2026-06-08 21:30:58] [INFO] #36 DONE 0.3s
+[2026-06-08 21:30:58] [INFO] #37 [frontend] resolving provenance for metadata file
+[2026-06-08 21:30:58] [INFO] #37 DONE 0.0s
+[2026-06-08 21:30:58] [INFO]  Image luxuryresort-frontend Building 
+[2026-06-08 21:30:58] [INFO]  Image luxuryresort-backend Building 
+[2026-06-08 21:30:58] [INFO]  Image luxuryresort-backend Built 
+[2026-06-08 21:30:58] [INFO]  Image luxuryresort-frontend Built 
+[2026-06-08 21:30:58] [INFO]  Network luxuryresort_default Creating 
+[2026-06-08 21:30:58] [INFO]  Network luxuryresort_default Created 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Creating 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Created 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Creating 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Created 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-frontend-1 Creating 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-frontend-1 Created 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Starting 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Started 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Waiting 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-postgres-1 Healthy 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Starting 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Started 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Waiting 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-backend-1 Healthy 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-frontend-1 Starting 
+[2026-06-08 21:30:58] [INFO]  Container luxuryresort-frontend-1 Started 
+[2026-06-08 21:30:58] [INFO] Flyway migrations and demo seed data run automatically inside the backend container on first database start.
+[2026-06-08 21:30:58] [INFO] Ready: http://localhost:8080/actuator/health
+[2026-06-08 21:30:58] [INFO] Ready: http://localhost:5173
+[2026-06-08 21:30:58] [INFO] Opening browser: http://localhost:5173
+[2026-06-08 21:30:58] [INFO] Done. Application is running at http://localhost:5173

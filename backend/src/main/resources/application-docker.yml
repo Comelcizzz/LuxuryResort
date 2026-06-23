@@ -1,0 +1,23 @@
+app:
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+  jwt:
+    secret: ${JWT_SECRET}
+
+spring:
+  flyway:
+    locations:
+      - classpath:db/migration
+      - classpath:db/dev
+    # Demo/docker: seed SQL files are edited during development; skip checksum validation.
+    validate-on-migrate: false
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

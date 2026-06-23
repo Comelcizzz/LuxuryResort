@@ -1,0 +1,27 @@
+Luxury Resort demo accounts
+Password for all accounts: Passw0rd!
+
+Admin
+Email: admin.showcase@luxuryresort.local
+Password: Passw0rd!
+Role: ADMIN
+Use for full access, users, rooms, services, analytics, and settings.
+
+Manager
+Email: manager.showcase@luxuryresort.local
+Password: Passw0rd!
+Role: MANAGER
+Use for operational dashboards, pricing, catalog management, and moderation.
+
+Reception
+Email: reception.showcase@luxuryresort.local
+Password: Passw0rd!
+Role: RECEPTIONIST
+Use for bookings, guest check-in/check-out workflows, and service order status.
+
+Guest
+Email: guest.showcase@luxuryresort.local
+Password: Passw0rd!
+Role: GUEST
+Use for public catalog, booking flow, personal bookings, services, reviews, and loyalty.
+

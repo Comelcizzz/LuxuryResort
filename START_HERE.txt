@@ -1,0 +1,24 @@
+How to start the project on Windows:
+
+1. Extract the archive.
+2. Open the "LuxuryResort" folder.
+3. Double-click Start-LuxuryResort.cmd.
+4. If Windows asks for administrator permission, click "Yes".
+5. Wait while the installer installs/starts Docker Desktop, builds the project, seeds the database, and opens the browser.
+6. Keep the command window open while using the site.
+7. When you are finished, type exit in the command window and press Enter. This stops the project containers and closes the launcher.
+
+The site will open here:
+http://localhost:5173
+
+PostgreSQL does not need to be installed separately. The database runs inside Docker.
+
+The first launch can take a long time. If the installer enables WSL2 or Virtual Machine Platform, it can ask you to restart the computer. After restarting, run Start-LuxuryResort.cmd again.
+
+If Docker Desktop says virtualization is disabled in BIOS/UEFI, enable Intel VT-x / Intel Virtualization Technology or AMD-V / SVM Mode in BIOS/UEFI. This cannot be done automatically by a script.
+
+Smart App Control can block homemade unsigned .exe files. This package uses Start-LuxuryResort.cmd instead of an .exe for that reason.
+
+All detailed steps are written to installer.log.
+
+You can also stop the project later by running Stop-LuxuryResort.cmd.

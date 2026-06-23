@@ -1,0 +1,29 @@
+{
+  "name": "resort-management-system",
+  "version": "1.0.0",
+  "description": "LuxuryResort: diploma Spring backend + legacy MERN coursework",
+  "scripts": {
+    "install-all": "npm install && cd frontend && npm install && cd ../legacy/frontend && npm install && cd ../backend && npm install",
+    "install-legacy": "cd legacy/frontend && npm install && cd ../backend && npm install",
+    "build": "cd legacy/frontend && npm run build",
+    "start-backend": "cd legacy/backend && npm start",
+    "dev-backend": "cd legacy/backend && npm run dev",
+    "dev-frontend": "cd legacy/frontend && npm run dev",
+    "dev": "concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
+    "dev:legacy": "concurrently \"npm run dev-backend\" \"npm run dev-frontend\"",
+    "dev:diploma-frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && .\\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=dev",
+    "dev:app": "docker compose -p luxuryresort --profile app up -d --build && npm run dev:diploma-frontend",
+    "install:diploma-frontend": "cd frontend && npm install",
+    "build:diploma-frontend": "cd frontend && npm run build",
+    "test:diploma-frontend": "cd frontend && npm run test",
+    "start": "npm run build && npm run start-backend",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "docker:app": "docker compose --profile app up -d --build"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "react-icons": "^5.5.0"
+  }
+}

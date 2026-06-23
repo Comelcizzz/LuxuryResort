@@ -1,0 +1,56 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: luxuryresort
+      POSTGRES_USER: resort_user
+      POSTGRES_PASSWORD: resort_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U resort_user -d luxuryresort"]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    profiles: ["app"]
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/luxuryresort
+      SPRING_DATASOURCE_USERNAME: resort_user
+      SPRING_DATASOURCE_PASSWORD: resort_pass
+      SERVER_PORT: "8080"
+      JWT_SECRET: ${JWT_SECRET:-dev_only_change_me_min_32_chars_______}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:8080/actuator/health || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 50s
+
+  frontend:
+    profiles: ["app"]
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+

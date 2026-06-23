@@ -1,0 +1,61 @@
+# Render Blueprint — LuxuryResort (API + PostgreSQL + Static frontend)
+# Docs: https://render.com/docs/blueprint-spec
+#
+# Deploy: push repo to GitHub → Render Dashboard → New → Blueprint → select repo.
+# After first deploy, open the frontend URL and log in (prod profile has no demo seed;
+# use SPRING_PROFILES_ACTIVE=docker if you need dev seed data — see DEPLOY_DEV.md).
+
+databases:
+  - name: luxuryresort-db
+    plan: free
+    databaseName: luxuryresort
+    user: resort_user
+
+services:
+  - type: web
+    name: luxuryresort-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: luxuryresort-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: luxuryresort-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: luxuryresort-db
+          property: password
+      - key: CORS_ORIGINS
+        fromService:
+          type: web
+          name: luxuryresort-web
+          envVarKey: RENDER_EXTERNAL_URL
+
+  - type: web
+    name: luxuryresort-web
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build:render
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_HOST
+        fromService:
+          type: web
+          name: luxuryresort-api
+          envVarKey: RENDER_EXTERNAL_URL

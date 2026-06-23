@@ -1,0 +1,51 @@
+spring:
+  application:
+    name: luxury-resort
+  profiles:
+    default: dev
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/luxuryresort}
+    username: ${DATABASE_USERNAME:postgres}
+    password: ${DATABASE_PASSWORD:postgres}
+    hikari:
+      maximum-pool-size: 10
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    enabled: true
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false
+
+luxuryresort:
+  payment:
+    # Mock gateway: share of successful authorizations (1.0 = always OK for diploma / local demos).
+    mock-success-probability: 1.0
+
+app:
+  cors:
+    dev-origin-patterns: http://localhost:*,http://127.0.0.1:*
+  jwt:
+    secret: ${JWT_SECRET:0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef}
+    access-token-ttl: 15m
+    refresh-token-ttl: 14d
+
+server:
+  port: ${PORT:${SERVER_PORT:8080}}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true

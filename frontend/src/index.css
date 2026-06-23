@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #0d1b2a;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --cream: #f7f3ee;
+  --slate: #4a5568;
+  --success: #2d6a4f;
+  --error: #c0392b;
+}
+
+body {
+  @apply bg-cream text-navy font-sans antialiased;
+}
