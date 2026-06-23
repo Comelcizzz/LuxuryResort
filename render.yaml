@@ -21,10 +21,18 @@ services:
         value: prod
       - key: JWT_SECRET
         generateValue: true
-      - key: DATABASE_URL
+      - key: PGHOST
         fromDatabase:
           name: luxuryresort-db
-          property: connectionString
+          property: host
+      - key: PGPORT
+        fromDatabase:
+          name: luxuryresort-db
+          property: port
+      - key: PGDATABASE
+        fromDatabase:
+          name: luxuryresort-db
+          property: database
       - key: SPRING_DATASOURCE_USERNAME
         fromDatabase:
           name: luxuryresort-db
